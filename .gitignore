@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+thesis.txt
+output/
+.edgar_cache/
+.edgar/
+
+# PDF files (user uploads)
+uploads/
+*.pdf

@@ -1,0 +1,28 @@
+# The Omaha Forensic Engine - Dependencies
+# Python 3.11
+
+# Core Framework
+streamlit>=1.28.0
+
+# AI & LLM
+langchain>=0.1.0
+langchain-google-genai>=0.0.6
+google-generativeai>=0.3.0
+
+# PDF Processing
+PyPDF2>=3.0.0
+
+# EDGAR
+edgartools>=2.0.0
+
+# Environment & Configuration
+python-dotenv>=1.0.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Utilities
+pydantic>=2.5.0
+typing-extensions>=4.8.0
+tenacity>=8.0.0
