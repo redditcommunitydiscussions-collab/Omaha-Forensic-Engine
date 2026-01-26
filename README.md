@@ -38,6 +38,25 @@ The system consists of three core agents:
 - Python 3.11
 - Google Gemini API key
 
+## Secrets (Streamlit Cloud)
+
+Set these in Streamlit Cloud → App Settings → Secrets:
+
+```
+GOOGLE_API_KEY="your_key_here"
+```
+
+Optional tuning:
+
+```
+GEMINI_MODEL="gemini-1.5-flash"
+RETRY_ATTEMPTS="4"
+RETRY_BACKOFF_SECONDS="30"
+SLEEP_BETWEEN_STEPS="10"
+ENABLE_REDUCE="true"
+MAX_SECTION_CHARS="120000"
+```
+
 ## Project Status
 
 🚧 **In Development** - Currently in scaffolding phase.
