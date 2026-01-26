@@ -86,6 +86,8 @@ def fetch_company_data(ticker: str) -> Dict[str, str]:
     os.environ["EDGAR_PATH"] = cache_dir
     os.environ["XDG_CACHE_HOME"] = cache_dir
     os.environ["HOME"] = os.path.dirname(__file__)
+    os.environ.setdefault("EDGAR_RATE_LIMIT_PER_SEC", os.getenv("EDGAR_RATE_LIMIT_PER_SEC", "5"))
+    pause_seconds = float(os.getenv("EDGAR_PAUSE_SECONDS", "1.0"))
 
     from edgar import Company, set_identity
 
@@ -167,6 +169,8 @@ def fetch_company_data(ticker: str) -> Dict[str, str]:
     def _filing_text(filing) -> str:
         if filing is None:
             return ""
+        if pause_seconds > 0:
+            time.sleep(pause_seconds)
         # Try top-level methods on the filing
         for method in ("view", "markdown", "text", "get_text"):
             text = _try_call(filing, method)

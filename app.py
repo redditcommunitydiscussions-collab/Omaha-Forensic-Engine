@@ -24,7 +24,14 @@ if run_button:
             filings_text = fetch_company_data(ticker)
         except Exception as exc:
             status.update(label="EDGAR fetch failed.", state="error")
-            st.error(f"Error: {exc}")
+            message = str(exc)
+            if "rate limit" in message.lower() or "429" in message:
+                st.error(
+                    "SEC rate limit exceeded. Wait at least 10 minutes before retrying, "
+                    "and consider lowering EDGAR_RATE_LIMIT_PER_SEC in secrets."
+                )
+            else:
+                st.error(f"Error: {exc}")
         else:
             status.update(label="Running sequential chain...", state="running")
             output_placeholder = st.empty()
